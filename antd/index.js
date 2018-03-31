@@ -1,0 +1,1 @@
+export TablePro from './table/Table';

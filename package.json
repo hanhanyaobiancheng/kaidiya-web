@@ -1,6 +1,6 @@
 {
   "name": "kaidiya-web",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "some react component and js function",
   "author": "linhan",
   "repository": {
@@ -9,8 +9,11 @@
   },
   "dependencies": {
     "antd": "^3.3.0",
+    "immutability-helper": "^2.6.6",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
+    "react-dnd": "^2.6.0",
+    "react-dnd-html5-backend": "^2.6.0",
     "react-dom": "^16.2.0"
   }
 }

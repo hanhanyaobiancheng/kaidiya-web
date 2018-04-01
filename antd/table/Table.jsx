@@ -72,6 +72,8 @@ class TableDrag extends Component {
     static propTypes = {
         columns: PropType.array,
         dataSource: PropType.array,
+        stopUpdateDataSource: PropType.func, // 停止更新dataSource
+        updateDataSource: PropType.bool, // 是否更新dataSource
     };
 
     state = {};
@@ -82,6 +84,7 @@ class TableDrag extends Component {
                               }) {
         if (dataSource && updateDataSource) {
             this.setState({dataSource});
+            this.props.stopUpdateDataSource();
         }
     }
 
@@ -130,24 +133,21 @@ class TableDrag extends Component {
     render() {
         const {
             columns,
+            onRow,
+            components,
         } = this.props;
 
         const {
             dataSource,
         } = this.state;
 
-        components = {
-            body: {
-                row: this.BodyRow,
-            },
-        };
-
         return (
-            <div className={style.wrap}>
+            <div className="wrap">
                 <Table
                     columns={columns}
                     dataSource={dataSource}
-                    components={this.components}
+                    components={components}
+                    onRow={onRow}
                 />
             </div>
         );

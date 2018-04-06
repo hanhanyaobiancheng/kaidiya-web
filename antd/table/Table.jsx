@@ -73,6 +73,7 @@ class TableDrag extends Component {
         columns: PropType.array,
         dataSource: PropType.array,
         stopUpdateDataSource: PropType.func, // 停止更新dataSource
+        onClick: PropType.func, // 行的点击事件
         updateDataSource: PropType.bool, // 是否更新dataSource
     };
 
@@ -133,7 +134,7 @@ class TableDrag extends Component {
     render() {
         const {
             columns,
-            onRow,
+            onClick,
             components,
         } = this.props;
 
@@ -147,7 +148,13 @@ class TableDrag extends Component {
                     columns={columns}
                     dataSource={dataSource}
                     components={components}
-                    onRow={onRow}
+                    onRow={(record, index) => {
+                        return {
+                            onClick: () => {
+                                onClick(record, index);
+                            },
+                        };
+                    }}
                 />
             </div>
         );

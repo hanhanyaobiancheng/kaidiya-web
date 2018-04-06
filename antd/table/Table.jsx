@@ -138,6 +138,8 @@ class TableDrag extends Component {
             components,
         } = this.props;
 
+        console.log(11111, onClick);
+
         const {
             dataSource,
         } = this.state;
@@ -150,9 +152,7 @@ class TableDrag extends Component {
                     components={components}
                     onRow={(record, index) => {
                         return {
-                            onClick: () => {
-                                onClick(record, index);
-                            },
+                            onClick: onClick(record, index),
                         };
                     }}
                 />
